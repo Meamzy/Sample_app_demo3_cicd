@@ -1,0 +1,14 @@
+- name: Network Getting Started First Playbook
+  remote_user: root
+  sudo: yes
+  hosts: all
+  tasks:
+
+    - name: Installing Docker
+      command: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+    
+    - name: Logging into the docker hub account
+      command: docker login --username meazmy --password ~7MSim-yutv#6E7
+
+    - name: Running the container
+      command: docker run -p 2000:2000 -d meamzy/meazmysampleappcicd:latest
