@@ -1,9 +1,9 @@
 terraform {
   backend "remote" {
-      organization = "Mea_corp"
-      workspaces {
-         name = "cicdworkspace"
-      }
+    organization = "Mea_corp"
+    workspaces {
+      name = "cicdworkspace"
+    }
   }
   required_providers {
     aws = {
@@ -48,5 +48,7 @@ sudo curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo docker login --username meamzy --password ~7MSim-yutv#6E7
 sudo docker run -p 2000:2000 -d meamzy/meazmysampleappcicd:latest
 EOT
-
+  tags = {
+    Name = var.instance_name
+  }
 }
