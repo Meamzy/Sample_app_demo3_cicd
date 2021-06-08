@@ -31,6 +31,6 @@ jobs:
         image: meamzy/meazmysampleappcicd
         tags: v1, latest
         registry: docker.io
-        dockerfile: Dockerfile.ci
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
