@@ -1,13 +1,28 @@
 - name: Install Docker And Run Container
   remote_user: ubuntu
+  become: yes
   hosts: all
   tasks:
+    - name: Download Docker
+      command: curl -fsSL https://get.docker.com -o get-docker.sh
 
-    - name: Installing Docker
-      command: sudo curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-    
+    - name: Install Docker
+      command: sh get-docker.sh
+
     - name: Logging into the docker hub account
-      command: sudo docker login --username meazmy --password ~7MSim-yutv#6E7
+      command: docker login --username '{{ lookup('env', 'DOCKER_USERNAME') }}' --password '{{ lookup('env', 'DOCKER_PASSWORD') }}'
+    
+    - name: Installing pip
+      command: apt-get install python3-pip -y 
+
+    - name: Installing docker-py
+      command: pip install docker-py 
 
     - name: Running the container
-      command: sudo docker run -p 2000:2000 -d meamzy/meazmysampleappcicd:latest
+      docker_container: 
+        name: mycont
+        image: "meamzy/meazmysampleappcicd:latest"
+        state: started
+        ports:
+        - "2000:2000"
+        - "3306:3306"
