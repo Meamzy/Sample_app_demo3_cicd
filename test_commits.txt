@@ -5,5 +5,3 @@ Testing terraform woaw
 Another terraform test woaw
 
 3-rd testing terraform
-
-one more change
