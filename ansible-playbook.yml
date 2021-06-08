@@ -2,7 +2,14 @@
   remote_user: ubuntu
   become: yes
   hosts: all
+  gather_facts: no # important
   tasks:
+    - name: Wait for system to become reachable
+      wait_for_connection:
+
+    - name: Gather facts for the first time
+      setup:
+        
     - name: Download Docker
       command: curl -fsSL https://get.docker.com -o get-docker.sh
 
