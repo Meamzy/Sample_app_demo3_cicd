@@ -80,7 +80,7 @@ jobs:
 #     - name: Terraform Format
 #       run: terraform fmt -check
     - name: Terraform Destroy Previous Version
-      run: terraform destroy
+      run: terraform destroy -auto-approve
       
     # Generates an execution plan for Terraform
     - name: Terraform Plan
