@@ -90,3 +90,16 @@ jobs:
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       run: terraform apply -auto-approve
+      
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: ansible-playbook.yml
+        directory: ./
+        key: ${{secrets.SSH_PRIVATE_KEY}}
+        inventory: |
+          [all]
+          ${{secrets.IP}}
+
+          
+  
