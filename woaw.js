@@ -14,5 +14,3 @@ function f() {
       var r = 'monkeys'; // This variable is local and does not affect the "birds" r of the parent function.
       z = 'penguins'; // Closure: Child function is able to access the variables of the parent function.
     }
-
-    sdfsfsdfdsfsd
