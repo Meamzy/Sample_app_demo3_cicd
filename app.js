@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-sdfsdfsdfsdfsdgfds
+POFIXI MENYA <3
 
 const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
